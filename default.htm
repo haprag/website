@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prag Lab - Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #660099, #333333);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            padding: 4em;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.7em;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.3em;
+            margin-bottom: 2.5em;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .university-logo {
+            max-width: 500px;
+            margin-bottom: 3em;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .footer {
+            margin-top: 3em;
+            font-size: 1em;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        .highlight {
+            color: #FFCC33;
+            font-weight: 600;
+        }
+
+        a {
+            color: #FFCC33;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 3em;
+                margin: 1em;
+            }
+            h1 {
+                font-size: 2.8em;
+            }
+            p {
+                font-size: 1.1em;
+            }
+            .university-logo {
+                max-width: 200px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <img src="Logo-01.png" alt="Prag Lab Logo" class="university-logo">
+        <p>Our website is launching soon, bringing you insights into our cutting-edge research.</p>
+        <p>Stay tuned for <span class="highlight">innovative discoveries</span> and updates.</p>
+        <p>Meanwhile, check out Hiran's <a href="https://research.manchester.ac.uk/en/persons/hiran-prag">research profile</a>.</p>
+        <div class="footer">
+            &copy; 2025 Prag Lab, University of Manchester
+        </div>
+    </div>
+
+</body>
+</html>
