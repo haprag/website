@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prag Lab - Publications</title>
+    <link rel="icon" href="Tab Logo-01.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Updated CSS to match the main website style */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            color: #333;
+            background: #f8f8f8;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #581c75;
+            color: white;
+            padding: 5px 0;
+            text-align: left;
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 7%;
+            padding-right: 7%;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header:hover {
+            background-color: #581c75;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 0;
+            letter-spacing: -0.04em;
+            transition: transform 0.2s ease;
+            font-weight: 600;
+        }
+        header h1:hover {
+            transform: scale(1.03);
+        }
+        header p {
+            font-size: 1.3em;
+            color: #eee;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        nav {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.5em;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease, opacity 0.8s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+            position: relative;
+            opacity: 0.8;
+        }
+        nav a:hover {
+            color: #f5f5f5;
+            border-bottom: 2px solid #f5f5f5;
+            transform: translateY(-2px) scale(1.05);
+            opacity: 1;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #f5f5f5;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::before {
+            width: 100%;
+            left: 0;
+        }
+        .nav-line { /* New class for the yellow line */
+            width: 100%;
+            height: 6px;
+            background-color: #ffc82e; /* Manchester Yellow */
+            margin-top: 0; /* Adjust as needed to position it */
+            position: relative;
+            z-index: 99;
+        }
+        section {
+            padding: 20px 7%;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: #70269e;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            letter-spacing: -0.03em;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            padding-left: 0;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 6px;
+            background-color: #ffc82e;
+            border-radius: 3px;
+        }
+        h2:hover {
+            transform: translateY(-5px);
+        }
+        #publications-feed {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #publications-feed li {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            line-height: 1;
+            font-size: 1.1em;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            animation: fadeIn 1s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #publications-feed li:last-child {
+            border-bottom: none;
+        }
+        #publications-feed li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #publications-feed li strong {
+            font-weight: 200;
+            color: #581c75;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        #publications-feed li strong:hover {
+            color: #ffc82e;
+        }
+        #publications-feed li em{
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+line-height:1.8;
+letter-spacing: -0.0em;
+            color: #555;
+           font-style:normal;
+        }
+        #publications-feed li a {
+            color: #70269e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        #publications-feed li a:hover {
+            color: #ffc82e;
+        }
+        .highlight-author {
+            font-weight: bold; /* Make the specific author bold */
+            color: #581c75; /* Use a distinct color for the highlighted author */
+        }
+        footer {
+            background-color: #70269e;
+            color: white;
+            padding: 30px 0; /* Changed padding to match the research page */
+            text-align: center;
+            border-top: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px 10px;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            nav a {
+                margin: 10px 10px;
+                font-size: 1em;
+            }
+            section {
+                padding: 50px 3%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            h2 {
+                text-align: center;
+                font-size: 2em;
+            }
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            #publications-feed li {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="Logo-01.png" alt="Prag Lab Logo" style="margin-right: 0px; max-width: 100%; border-radius: 8px;">
+        </div>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="research.html">Research</a> |
+            <a href="publications.html">Publications</a> |
+            <a href="people.html">People</a> |
+            <a href="opportunities.html">Opportunities</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="nav-line"></div> <!-- Added the yellow line below the header -->
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <ul id="publications-feed">
+        </ul>
+    </section>
+
+    <footer>
+       <img src="Manchesterlogo.png" alt="University of Manchester Logo" style="max-width: 200px; border-radius: 0px;">
+        <p>&copy; 2025 Prag Lab | University of Manchester</p>
+    </footer>
+
+    <script>
+        /**
+         * Fetches publication data from PubMed using the E-utilities API,
+         * then parses and displays the data.
+         */
+        async function fetchPublications() {
+            const publicationsFeed = document.getElementById("publications-feed");
+            publicationsFeed.innerHTML = "<p>Loading publications from PubMed...</p>";
+
+            const pubmedSearchAPI = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?";
+            const pubmedSummaryAPI = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?";
+            const database = "db=pubmed";
+            const returnmode = "&retmode=json";
+            const returnmax = "&retmax=200"; // Increased max results for more comprehensive fetch
+            const authorSearchTerm = "&term=Hiran A. Prag[Author]"; // Specific author search term
+
+            try {
+                // Step 1: Search for PubMed IDs by author
+                const idURL = `${pubmedSearchAPI}${database}${returnmode}${returnmax}${authorSearchTerm}`;
+                console.log("Fetching PubMed IDs from:", idURL);
+                const idResponse = await fetch(idURL);
+                if (!idResponse.ok) {
+                    throw new Error(`HTTP error! status: ${idResponse.status} for PubMed ID search.`);
+                }
+                const idData = await idResponse.json();
+                const idList = idData.esearchresult.idlist;
+
+                if (!idList || idList.length === 0) {
+                    publicationsFeed.innerHTML = "<p>No publications found for Hiran A. Prag on PubMed.</p>";
+                    return;
+                }
+
+                const idStringList = idList.join(','); // Join IDs for summary API
+                const summaryURL = `${pubmedSummaryAPI}${database}${returnmode}&id=${idStringList}`;
+                console.log("Fetching PubMed Summaries from:", summaryURL);
+
+                // Step 2: Get detailed summaries for the IDs
+                const summaryResponse = await fetch(summaryURL);
+                if (!summaryResponse.ok) {
+                    throw new Error(`HTTP error! status: ${summaryResponse.status} for PubMed summary fetch.`);
+                }
+                const summaryData = await summaryResponse.json();
+
+                const publications = [];
+                // Iterate through each UID in the result object, skipping the 'uids' array
+                for (const uid of summaryData.result.uids) {
+                    const ref = summaryData.result[uid];
+                    if (!ref) continue; // Skip if reference data is somehow missing
+
+                    const title = ref.title || "N/A";
+
+                    let authors = "N/A";
+                    if (ref.authors && ref.authors.length > 0) {
+                        // Combine all authors into a comma-separated string
+                        authors = ref.authors.map(a => a.name).join(', ');
+                    }
+
+                    let pubYear = "N/A";
+                    if (ref.pubdate) {
+                        // Extract year from 'YYYY MMM DD' or 'YYYY Mon' format
+                        const dateParts = ref.pubdate.match(/(\d{4})/);
+                        if (dateParts && dateParts[1]) {
+                            pubYear = dateParts[1];
+                        }
+                    }
+
+                    let journalDetails = ref.source || "N/A";
+                    const parts = [];
+                    if (ref.volume) parts.push(`Vol ${ref.volume}`);
+                    if (ref.issue) parts.push(`(${ref.issue})`);
+                    if (ref.pages) parts.push(`Pages ${ref.pages}`);
+
+                    if (parts.length > 0) {
+                        journalDetails += ` ${parts.join(', ')}`;
+                    }
+
+                    // PubMed summary API typically doesn't directly provide DOI as a top-level field,
+                    // so we'll leave it null for now. PubMed ID is directly available.
+                    const pubMedId = uid;
+                    const link = `https://pubmed.ncbi.nlm.nih.gov/${pubMedId}`;
+                    const doi = null; // DOI not readily available from esummary endpoint
+
+                    publications.push({
+                        title,
+                        pubDate: pubYear, // Store only the year
+                        link,
+                        authors,
+                        journal: journalDetails,
+                        pubMedId,
+                        doi
+                    });
+                }
+
+                // Sort publications by year in descending order
+                publications.sort((a, b) => {
+                    const yearA = parseInt(a.pubDate);
+                    const yearB = parseInt(b.pubDate);
+                    // Handle cases where year might be 'N/A' or invalid
+                    if (isNaN(yearA) && isNaN(yearB)) return 0;
+                    if (isNaN(yearA)) return 1; // N/A years go to the end
+                    if (isNaN(yearB)) return -1; // N/A years go to the end
+                    return yearB - yearA; // Sort by year descending
+                });
+
+                displayPublications(publications);
+
+            } catch (error) {
+                publicationsFeed.innerHTML = `<p>Error fetching publications: ${error.message}. Please check your internet connection or try again later. This could be a temporary issue with the PubMed API.</p>`;
+                console.error("Error fetching PubMed publications:", error);
+            }
+        }
+
+        /**
+         * Highlights a specific author name within a comma-separated string of authors.
+         * @param {string} authorsString - The full string of authors.
+         * @param {string} authorToHighlight - The name of the author to highlight.
+         * @returns {string} The authors string with the specified author wrapped in a span for highlighting.
+         */
+        function highlightAuthor(authorsString, authorToHighlight) {
+            if (!authorsString || !authorToHighlight) return authorsString;
+
+            const names = authorsString.split(',').map(name => name.trim());
+            const highlightedNames = names.map(name => {
+                // Use a case-insensitive check to match the author
+                // Changed highlight condition to specifically look for "Prag HA"
+                if (name.toLowerCase() === authorToHighlight.toLowerCase() || name.toLowerCase().includes('prag h')) {
+                    return `<span class="highlight-author">${name}</span>`;
+                }
+                return name;
+            });
+            return highlightedNames.join(', ');
+        }
+
+        /**
+         * Displays the fetched publications in the HTML list.
+         * @param {Array<Object>} publications - An array of publication objects.
+         */
+        function displayPublications(publications) {
+            const publicationsFeed = document.getElementById("publications-feed");
+            let publicationsHTML = "";
+            const authorToHighlight = "Prag HA"; // Changed the specific author name to highlight to "Prag HA"
+
+            if (publications.length === 0) {
+                publicationsFeed.innerHTML = "<p>No publications found.</p>";
+                return;
+            }
+
+            publications.forEach(pub => {
+                // Determine the authors string, defaulting to "Authors not available" if needed
+                let authors = pub.authors && pub.authors !== "N/A" ? pub.authors : "Authors not available";
+                // Highlight the specific author in the string
+                authors = highlightAuthor(authors, authorToHighlight);
+
+                const journalDetails = pub.journal && pub.journal !== "N/A" ? pub.journal : "Journal details not available";
+                // pub.pubDate now directly contains the year, so no need for substring
+                const pubYearDisplay = pub.pubDate !== 'N/A' ? `(${pub.pubDate})` : '';
+                
+                let linksHtml = "";
+                if (pub.link && pub.link !== "#") {
+                    // Changed link text to be specific to PubMed
+                    linksHtml += `<a href="${pub.link}" target="_blank" rel="noopener noreferrer">PubMed Link</a>`;
+                }
+                // PubMed ID link is always available if the publication was fetched from PubMed
+                if (pub.pubMedId) {
+                    linksHtml += `${linksHtml ? ' | ' : ''}<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pubMedId}" target="_blank" rel="noopener noreferrer">PMID: ${pub.pubMedId}</a>`;
+                }
+                // DOI link is commented out as it's not reliably available from this PubMed endpoint
+                // if (pub.doi) {
+                //     linksHtml += `${linksHtml ? ' | ' : ''}<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener noreferrer">DOI: ${pub.doi}</a>`;
+                // }
+
+                publicationsHTML += `
+                    <li>
+                        <strong>${pub.title}</strong><br>
+                        <em>${authors}</em><br>
+                        <em>${journalDetails} ${pubYearDisplay}</em><br>
+                        ${linksHtml}
+                    </li>
+                `;
+            });
+
+            publicationsFeed.innerHTML = publicationsHTML;
+        }
+
+        // Initialize fetching publications when the page loads
+        fetchPublications();
+    </script>
+</body>
+</html>

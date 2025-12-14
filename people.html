@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prag Lab - People</title>
+    <link rel="icon" href="Tab Logo-01.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Updated CSS to match the main website style */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            color: #333;
+            background: #f8f8f8;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #581c75;
+            color: white;
+            padding: 5px 0;
+            text-align: left;
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 7%;
+            padding-right: 7%;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header:hover {
+            background-color: #581c75;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 0;
+            letter-spacing: -0.04em;
+            transition: transform 0.2s ease;
+            font-weight: 600;
+        }
+        header h1:hover {
+            transform: scale(1.03);
+        }
+        header p {
+            font-size: 1.3em;
+            color: #eee;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        nav {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.5em;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease, opacity 0.8s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+            position: relative;
+            opacity: 0.8;
+        }
+        nav a:hover {
+            color: #f5f5f5;
+            border-bottom: 2px solid #f5f5f5;
+            transform: translateY(-2px) scale(1.05);
+            opacity: 1;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #f5f5f5;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::before {
+            width: 100%;
+            left: 0;
+        }
+ .nav-line { /* New class for the yellow line */
+            width: 100%;
+            height: 6px;
+            background-color: #ffc82e; /* Manchester Yellow */
+            margin-top: 0; /* Adjust as needed to position it */
+            position: relative;
+            z-index: 99;
+        }
+        section {
+            padding: 20px 7%;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: #70269e;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            letter-spacing: -0.03em;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            padding-left: 0;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 6px;
+            background-color: #ffc82e;
+            border-radius: 3px;
+        }
+        h2:hover {
+            transform: translateY(-5px);
+        }
+        h6 {
+            color: #70269e;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            letter-spacing: -0.03em;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            padding-left: 0;
+        }
+        h6::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 6px;
+            background-color: #ffc82e;
+            border-radius: 3px;
+        }
+        h6:hover {
+            transform: translateY(-5px);
+        }
+        #people-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            gap: 30px;
+        }
+        #people-list li {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.9;
+            font-size: 1.1em;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            animation: fadeIn 1s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #people-list li:last-child {
+            border-bottom: none;
+        }
+        #people-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+       }
+        #people-list li img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #people-list li h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #581c75;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        #people-list li h3:hover {
+            color: #ffc82e;
+        }
+        #people-list li p {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+        #people-list li a {
+            color: #70269e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        #people-list li a:hover {
+            color: #ffc82e;
+        }
+        footer {
+            background-color: #70269e;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px 10px;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            nav a {
+                margin: 10px 10px;
+                font-size: 1em;
+            }
+            section {
+                padding: 50px 3%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            h2 {
+                text-align: center;
+                font-size: 2em;
+            }
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            #people-list li {
+                font-size: 1em;
+                padding: 20px;
+            }
+             #people-list li img{
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="Logo-01.png" alt="Prag Lab Logo" style="margin-right: 0px; max-width: 100%; border-radius: 8px;">
+        </div>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="research.html">Research</a> |
+            <a href="publications.html">Publications</a> |
+            <a href="people.html">People</a> |
+            <a href="opportunities.html">Opportunities</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+ <div class="nav-line"></div> <!-- Added the yellow line below the header -->
+    <section id="people">
+        <h2>People</h2>
+        <ul id="people-list">
+            <li>
+                <img src="HP.jpg" alt="Hiran A. Prag">
+                <h3>Hiran A. Prag <i>MPharm(Hons), PhD</i></h3>
+                <p><strong>Principal Investigator</strong></p>
+                <p>I studied Pharmacy at the University of Nottingham, I became fascinated by the intricate molecular pathways that link metabolic dysfunction to the progression of diseases. My experience working in the pharmaceutical industry and hospital pharmacy led my interest towards applying scientific research to developing therapeutic interventions.  I completed my PhD under the supervision of Professor Mike Murphy at the MRC Mitochondrial Biology Unit, University of Cambridge. My PhD research focused on developing novel inhibitors of the mitochondrial enzyme succinate dehydrogenase, a key player in cellular energy production and key node in a number of diseases.
+
+During my PhD, I became interested in translating my work, as it was relevant for treating ischaemia/reperfusion injury during heart attacks and inflammation. I carried out postdoctoral research at the University of Cambridge, working with Professor Thomas Krieg in the Department of Medicine. Here, I undertook work to understand the precise mechanisms of damage occurring in ischaemia/reperfusion injury and developed a novel therapeutic approach to combat this, which has shown to be effective in pre-clinical models of heart attack, ischaemic stroke and organ transplantation.
+
+In January 2025, I took up my current Lectureship at the University of Manchester, to start my research program focused on understanding the role of mitochondrial metabolism and redox status in disease and identifying new therapeutic targets.</p>
+                <a href="mailto:hiran.prag@manchester.ac.uk">Email</a> | <a href="https://www.research.manchester.ac.uk/en/persons/hiran-prag">Profile</a>
+            </li>
+            
+        </ul>
+    </section>
+
+<section id="Collaborators">
+        <h2>Collaborators</h2>
+        <div class="contact-info">
+            <p>
+<b>Mike Harte</b> - University of Manchester <br>
+<b>Akhil Jain</b> - University of Manchester <br>
+<b>Zeeshan Ahmad</b> - University of Manchester <br>
+<b>Christos Tapeinos</b> - University of Manchester <br>
+<b>Mike Murphy</b> - MRC Mitochondrial Biology Unit, University of Cambridge <br>
+<b>Thomas Krieg</b> - University of Cambridge <br>
+<b>Ana Vujic</b> - University of Cambridge <br>
+<b>Dunja Aksentijevic</b> - Queen Mary University of London <br>
+
+            </p>
+        </div>
+
+    <footer>
+        <img src="Manchesterlogo.png" alt="University of Manchester Logo" style="max-width: 200px; border-radius: 0px;">
+        <p>&copy; 2025 Prag Lab | University of Manchester</p>
+    </footer>
+
+    <script>
+        const peopleList = document.getElementById("people-list");
+        const peopleData = [
+        *    {
+                name: "You",
+                title: "You",
+                description: "Hiran is the principal investigator and leads the Prag Lab. His research focuses on...",
+                email: "hiran.prag@manchester.ac.uk",
+                profile: "https://www.research.manchester.ac.uk/en/persons/hiran-prag",
+                image: "hiranphoto.png"
+            },*
+
+            
+        ];
+
+        function createPersonHTML(person) {
+            let linksHTML = "";
+            if (person.email) {
+                linksHTML += `<a href="mailto:${person.email}">Email</a> | `;
+            }
+            if (person.profile) {
+                linksHTML += `<a href="${person.profile}">Profile</a> | `;
+            }
+             if (person.linkedin) {
+                linksHTML += `<a href="${person.linkedin}">LinkedIn</a>`;
+            }
+            linksHTML = linksHTML.slice(0, -3);
+
+            return `
+                <li>
+                    <img src="${person.image}" alt="${person.name}">
+                    <h3>${person.name}</h3>
+                    <p><strong>${person.title}</strong></p>
+                    <p>${person.description}</p>
+                    ${linksHTML}
+                </li>
+            `;
+        }
+
+        peopleData.forEach(person => {
+            const personHTML = createPersonHTML(person);
+            peopleList.innerHTML += personHTML;
+        });
+    </script>
+</body>
+</html>

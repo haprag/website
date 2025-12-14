@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiran A. Prag - Publications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Updated CSS to match the main website style */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            color: #333;
+            background: #f8f8f8;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #581c75;
+            color: white;
+            padding: 5px 0;
+            text-align: left;
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 7%;
+            padding-right: 7%;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header:hover {
+            background-color: #581c75;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 0;
+            letter-spacing: -0.04em;
+            transition: transform 0.2s ease;
+            font-weight: 600;
+        }
+        header h1:hover {
+            transform: scale(1.03);
+        }
+        header p {
+            font-size: 1.3em;
+            color: #eee;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        nav {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.5em;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease, opacity 0.8s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+            position: relative;
+            opacity: 0.8;
+        }
+        nav a:hover {
+            color: #f5f5f5;
+            border-bottom: 2px solid #f5f5f5;
+            transform: translateY(-2px) scale(1.05);
+            opacity: 1;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #f5f5f5;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::before {
+            width: 100%;
+            left: 0;
+        }
+        section {
+            padding: 20px 7%;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: #70269e;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            letter-spacing: -0.03em;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            padding-left: 0;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 6px;
+            background-color: #ffc82e;
+            border-radius: 3px;
+        }
+        h2:hover {
+            transform: translateY(-5px);
+        }
+        #publications-feed {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #publications-feed li {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            line-height: 1;
+            font-size: 1.1em;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            animation: fadeIn 1s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #publications-feed li:last-child {
+            border-bottom: none;
+        }
+        #publications-feed li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(20px); }
+           to { opacity: 1; transform: translateY(0); }
+        }
+        #publications-feed li strong {
+            font-weight: 200;
+            color: #581c75;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        #publications-feed li strong:hover {
+            color: #ffc82e;
+        }
+        #publications-feed li em{
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #555;
+            font-style: italic;
+        }
+        #publications-feed li a {
+            color: #70269e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        #publications-feed li a:hover {
+            color: #ffc82e;
+        }
+        footer {
+            background-color: #70269e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #611e84;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px 10px;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            nav a {
+                margin: 10px 10px;
+                font-size: 1em;
+            }
+            section {
+                padding: 50px 3%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            h2 {
+                text-align: center;
+                font-size: 2em;
+            }
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            #publications-feed li {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="Logo-01.png" alt="Prag Lab Logo" style="margin-right: 0px; max-width: 100%; border-radius: 8px;">
+        </div>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="research.html">Research</a> |
+            <a href="publications.html">Publications</a> |
+            <a href="people.html">People</a> |
+            <a href="opportunities.html">Opportunities</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <ul id="publications-feed">
+        </ul>
+    </section>
+
+    <footer>
+       <img src="Manchesterlogo.png" alt="University of Manchester Logo" style="max-width: 200px; border-radius: 0px;">
+        <p>&copy; 2025 Prag Lab | University of Manchester</p>
+    </footer>
+
+    <script>
+        function fetchPublications() {
+            const publicationsFeed = document.getElementById("publications-feed");
+            publicationsFeed.innerHTML = "<p>Loading publications...</p>";
+            
+            // The original PubMed RSS URL
+            const originalRssUrl = "https://pubmed.ncbi.nlm.nih.gov/rss/search/14mzXgUgXxOfz54OTabZYc6ucdGTz6J2Aa9cP4-8ffbCe6gM4i/?limit=100&utm_campaign=pubmed-2&fc=20250514123833";
+            
+            // Use a CORS proxy to bypass cross-origin restrictions
+            const corsProxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(originalRssUrl)}`;
+
+            fetch(corsProxyUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json(); // The proxy returns JSON with the content inside
+                })
+                .then(data => {
+                    // The actual XML content is in data.contents
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+                    const items = xmlDoc.querySelectorAll("item");
+
+                    if (!items || items.length === 0) {
+                        publicationsFeed.innerHTML = "<p>No publications found.</p>";
+                        return;
+                    }
+
+                    const publications = Array.from(items).map(item => {
+                        try {
+                            const title = item.querySelector("title")?.textContent || "N/A";
+                            const pubDate = item.querySelector("pubDate")?.textContent || "N/A";
+                            const link = item.querySelector("link")?.textContent || "#";
+                            const pubMedId = link.match(/pubmed\/(\d+)/)?.[1];
+
+                            // Extracting authors and journal from the description field
+                            const description = item.querySelector("description")?.textContent || "";
+                            let authors = "N/A";
+                            let journal = "N/A";
+
+                            // Robust extraction of authors and journal from the description.
+                            // The PubMed RSS description format often looks like:
+                            // "Author 1, Author 2, Author 3. Journal Name. 2023 Mar 15;12(3):456-789. doi:..."
+                            // We need to parse this string carefully.
+
+                            // Regular expression to capture authors and then journal
+                            // It looks for a sequence of names (authors), followed by a dot, then the journal, then publication details.
+                            const descriptionParts = description.split('. ');
+                            if (descriptionParts.length >= 2) {
+                                authors = descriptionParts[0].trim();
+                                
+                                // Try to get the journal from the second part, but it might contain more.
+                                // We'll look for a common journal pattern.
+                                const journalAndDateMatch = descriptionParts[1].match(/(.*?)\.\s*(\d{4}\s(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)(?:-\w+)?(?:\s\d+)?(?:;|\.)|$)/);
+                                if (journalAndDateMatch && journalAndDateMatch[1]) {
+                                    journal = journalAndDateMatch[1].trim();
+                                } else {
+                                    // Fallback if the date pattern isn't immediately after the journal
+                                    journal = descriptionParts[1].trim();
+                                    // Further clean up the journal if it contains extra info (e.g., volume/issue, doi, pmid)
+                                    // This regex attempts to stop at typical publication details like 'doi:', 'PMID:', 'PMCID:', or 'Vol'
+                                    journal = journal.replace(/\.\s*(?:doi|PMID|PMCID|Vol|Issue|Suppl).*$/i, '').trim();
+                                }
+                            }
+                            
+                            // A final attempt to get authors if the description parsing is tricky
+                            // This regex tries to capture text before a potential "Journal Name. Year" pattern
+                            const authorFallbackMatch = description.match(/^([^.]+?)\.\s*([^.]+?)\.\s*\d{4}/);
+                            if (authorFallbackMatch && authorFallbackMatch[1]) {
+                                authors = authorFallbackMatch[1].trim();
+                            }
+                            // A final attempt to get journal if the description parsing is tricky
+                            const journalFallbackMatch = description.match(/^[^.]+\.\s*([^.]+?)\.\s*\d{4}/);
+                            if (journalFallbackMatch && journalFallbackMatch[1]) {
+                                journal = journalFallbackMatch[1].trim();
+                            }
+
+
+                            return {
+                                title,
+                                pubDate,
+                                link,
+                                authors,
+                                journal,
+                                pubMedId
+                            };
+                        } catch (error) {
+                            console.error("Error parsing item:", item, error);
+                            return null; // Return null for invalid items
+                        }
+                    }).filter(item => item !== null); // Filter out any null items
+
+                    displayPublications(publications);
+                })
+                .catch(error => {
+                    publicationsFeed.innerHTML = `<p>Error fetching publications: ${error.message}. This is likely due to a CORS policy preventing direct access to the RSS feed. A CORS proxy is being used, but it might be temporarily unavailable or the original RSS feed has changed its format.</p>`;
+                    console.error("Error fetching publications:", error);
+                });
+        }
+
+        function displayPublications(publications) {
+            const publicationsFeed = document.getElementById("publications-feed");
+            let publicationsHTML = "";
+
+            if (publications.length === 0) {
+                publicationsFeed.innerHTML = "<p>No publications found.</p>";
+                return;
+            }
+
+            publications.forEach(pub => {
+                const authors = pub.authors && pub.authors !== "N/A" ? pub.authors : "Authors not available";
+                const journal = pub.journal && pub.journal !== "N/A" ? pub.journal : "Journal not available";
+                const pubDate = pub.pubDate ? new Date(pub.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : "Date not available"; // Nicer date format
+                const link = pub.link && pub.link !== "#" ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer">Link to PubMed</a>` : "";
+                const pubMedIdLink = pub.pubMedId ? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pubMedId}" target="_blank" rel="noopener noreferrer">PMID: ${pub.pubMedId}</a>` : "";
+
+                publicationsHTML += `
+                    <li>
+                        <strong>${pub.title}</strong><br>
+                        <em>${authors}</em><br>
+                        <em>${journal}. Published: ${pubDate}</em><br>
+                        ${link} ${pubMedIdLink}
+                    </li>
+                `;
+            });
+
+            publicationsFeed.innerHTML = publicationsHTML;
+        }
+
+        fetchPublications();
+    </script>
+</body>
+</html>
